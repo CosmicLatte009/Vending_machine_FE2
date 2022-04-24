@@ -3,30 +3,39 @@
 body {
   background-color: #eae8fe;
   font-family: "Noto Sans KR", sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .logo {
-  width: 386px;
-  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 4.25em;
 }
 
 .vending_machine {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   gap: 28px;
+  font-weight: 500;
 }
 
 .content_left {
-  width: 360px;
+  -ms-flex-preferred-size: 22.5rem;
+  flex-basis: 22.5rem;
   background: #ffffff;
 }
 
 .content_right {
-  width: 360px;
+  -ms-flex-preferred-size: 22.5rem;
+  flex-basis: 22.5rem;
   background: #ffffff;
 }
 
@@ -38,35 +47,82 @@ body {
   height: 477px;
 }
 
-button[class*="btn_list"] {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 6px;
+.all_list {
+  padding-top: 31px;
+  padding-left: 27px;
+}
+.all_list > li {
+  display: inline-block;
+}
 
+button[class="btn_list_all_item"] {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 94px;
+  flex: 1 94px;
   width: 94px;
   height: 130px;
+  padding: 11px 29px 54px;
+  list-style: none;
   border-radius: 10px;
   background: #ffffff;
   -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
-  list-style: none;
-  padding: 11px 29px;
 }
 
-img[class*="list_img"] {
+img[class$="list_img"] {
   width: 36px;
 }
+
 .tit_item {
-  font-size: 9px;
-  font-weight: 500;
+  font-size: 0.563rem;
   text-align: center;
 }
 .txt_price {
-  width: 70px;
-  height: 22px;
-  font-size: 12px;
-  font-weight: 500;
+  width: 4.375rem;
+  height: 1.375rem;
+  font-size: 0.75rem;
   color: #ffffff;
   background: #6327fe;
   border-radius: 50px;
+}
+
+.info_balance {
+  width: 200px;
+  height: 33px;
+  border-radius: 5px;
+  font-size: 0.88rem;
+  background: #eae8fe;
+}
+
+.txt_balance {
+  font-size: 0.88rem;
+}
+
+.btn_return {
+  width: 5.875rem;
+  height: 33px;
+  font-size: 0.813rem;
+  border-radius: 5px;
+  background: #ffffff;
+  -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+}
+
+#payment {
+  width: 12.5rem;
+  height: 33px;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-size: 0.813rem;
+}
+
+.btn_pay {
+  width: 94px;
+  height: 32px;
+  font-size: 0.813rem;
+  border-radius: 5px;
+  background: #ffffff;
+  -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
 }
