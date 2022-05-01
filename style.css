@@ -23,7 +23,10 @@ body {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    /*flex-wrap: wrap을 주면 부모 컨테이너보다 넘칠 시 자동으로 밑으로 떨어진다*/
+    margin-bottom: 100px;
 	gap: 28px;
 	font-weight: 500;
 }
@@ -39,20 +42,24 @@ body {
 .content_right {
 	-ms-flex-preferred-size: 22.5rem;
 	flex-basis: 22.5rem;
+   
+   
 }
 
 .content_right_top {
 	-ms-flex-item-align: start;
 	align-self: flex-start;
 	margin-bottom: 16px;
-	padding: 9px 27px;
+	padding: 9px 0 9px;
 	background: #ffffff;
+    padding-left: 27px;
 }
 
 .content_right_bottom {
 	-ms-flex-item-align: start;
 	align-self: flex-start;
 	background: #ffffff;
+    padding: 25px 27px 26px 27px;
 }
 
 /** 전체 음료 목록**/
@@ -79,110 +86,232 @@ img[class$="list_img"] {
 
 .tit_item {
 	font-size: 0.563rem;
-	padding: 0px 10px 11px 7px;
+  /*text-align: center;를 안 줘도 어떻게 가운데 정렬이 됐나..*/
 }
 
 .txt_price {
+    /*span태그가 인라인요소라서 자기 크기만큼만 가져서 부모button의 height가 자동으로 안 늘어난 것. */
+    /* 인라인이 width랑 height값 줄 수 없다 */
+    /*현지님 왈: 인라인블록 특징은 인라인요소처럼 배치할 수 있으면서 마진 패딩 width height값을 줄 수 있다**/
+    display: block;
 	font-size: 0.75rem;
 	color: #ffffff;
 	background: #6327fe;
 	border-radius: 50px;
-	padding: 5px 15px;
+    width: 70px;
+    padding: 5px 0;
+    margin: 7px 11px 9px;
+	
 }
+
 
 /** 잔액표시와 입금하기**/
 .select_wrap {
 	margin: 0px 27px 24px;
+    width: 194px;
 }
 
-.select_grid_items {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-}
+
 .info_balance {
-	padding: 6px 10px;
+    width: 200px;
+	padding: 6px 10px 7px 10px;
 	border-radius: 5px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 	font-size: 0.88rem;
 	background: #eae8fe;
+    float: left;
 }
 
 .txt_balance {
 	font-size: 0.88rem;
+    float: right;
 }
 
 .btn_return {
-	width: 5.875rem;
-	height: 33px;
+    display: inline;
+    width: 5.875rem;
+    padding: 6px 9px 8px 10px;
 	font-size: 0.813rem;
 	font-weight: 500;
 	border-radius: 5px;
 	background: #ffffff;
 	-webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    
 }
 
 #payment {
-	width: 12.5rem;
-	height: 33px;
+    width: 200px;
+	padding: 6px 0 8px 6px;
 	background: #ffffff;
 	border: 1px solid #bdbdbd;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 	border-radius: 5px;
 	font-size: 0.813rem;
 }
 
 .btn_pay {
-	width: 5.875rem;
-	height: 32px;
+    width: 24px;
+    padding: 6px 35px 7px;
 	font-size: 0.813rem;
 	font-weight: 500;
+    vertical-align: middle;
 	border-radius: 5px;
 	background: #ffffff;
 	-webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
 }
 
+
 /** 선택한 음료 목록**/
-img[class$="select_img"] {
-	width: 18px;
+.select_list {
+    width: 200px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 0%;
+            flex: 1 0 0%;
+    padding: 12px 18px 0px 12px;
+    -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    background: #eae8fe;
 }
 
+.btn_select_item {
+    width: 170px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 0%;
+            flex: 1 0 0%;
+    padding: 6px 8px 7px 10px;
+    background: #ffffff;
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 33px;
+}
+
+.select_list > li + li {
+    margin-top: 6px;
+}
+
+img[class$="select_img"] {
+	width: 18px;
+    float: left;
+    margin-right: 10px;
+}
+
+.btn_select_item > span {
+    float: right;
+    width: 30px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    
+}
+
+.btn_get {
+    width: 94px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 0%;
+            flex: 1 0 0%;
+    padding: 43px 35px 44px 35px;
+    background: #6327fe;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
 /* 소지금, 획득한 음료*/
+.my_money {
+    margin: 0 auto;
+}
+
 .txt_mymoney {
 	font-size: 0.825rem;
 	font-weight: 500;
 	width: 306px;
 	border-radius: 5px;
 	background: #eae8fe;
-	padding: 6px 10px;
+	padding: 6px 0 6px 10px;
 }
 
 .txt_money {
+    float: right;
 	font-size: 0.825rem;
-	font-weight: 700;
+	font-weight: 700;  
+    padding-right: 10px;
 }
 
 .tit_myitem {
 	font-size: 0.875rem;
 	font-weight: 700;
 	text-align: center;
-	padding-top: 25px;
-	padding-bottom: 13px;
+	margin-bottom: 13px;
 }
 
 .my_items {
-	-ms-flex-item-align: center;
-	align-self: center;
 	width: 306px;
+    height: 364px;
 	background: #eae8fe;
 	border-radius: 5px;
+    border: 1px solid #BDBDBD;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 12px 18px 0 12px; 
+    margin-bottom: 6px;
+}
+
+.my_items > li + li {
+    margin-top: 6px;
+}
+
+.btn_my_item {
+    width: 276px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 0%;
+            flex: 1 0 0%;
+    background: #ffffff;
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 6px 8px 7px 10px;
+    text-align: left;
+    line-height: 33px;
 }
 
 img[class$="my_items_img"] {
 	width: 18px;
+    float: left;
+    margin-right: 10px;
+}
+
+.btn_my_item > span {
+    float: right;
+    width: 30px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;   
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
 }
 
 .txt_total_price {
 	font-size: 0.75rem;
 	font-weight: 500;
+   
+    float: right;
 }
+
+
+

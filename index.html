@@ -15,6 +15,7 @@
 			</h1>
 		</header>
 		<main class="vending_machine">
+
 			<!-- 전체 음료 목록 -->
 			<section class="content_left">
 				<h2 class="ir">자판기 전체 음료</h2>
@@ -30,7 +31,7 @@
 							<span class="txt_price">1000원</span>
 						</button>
 					</li>
-					<li>
+					<li class="sold_out">
 						<button type="submit" class="btn_list_all_item">
 							<img
 								class="Violet_Cola_list_img"
@@ -90,7 +91,7 @@
 				<!-- 잔액표시와 입금하기 -->
 				<section class="select_wrap">
 					<h2 class="ir">선택한 음료 목록 구입하기</h2>
-					<div class="select_grid_items">
+					
 						<div class="info_balance">
 							잔액 : <span class="txt_balance">1,000원</span>
 						</div>
@@ -105,39 +106,44 @@
 						/>
 
 						<button class="btn_pay" type="button">입금</button>
-					</div>
+				
 
-					<!-- 선택한 음료 목록 -->
-					<ul>
-						<li>
-							<button class="btn_select_item" type="button">
-								<img
-									class="Original_Cola_select_img"
-									src="/img/Original_Cola.png"
-									alt="오리지널콜라"
-								/>Original_Cola<span class="num_counter">1</span>
-							</button>
-						</li>
-						<li>
-							<button class="btn_select_item" type="button">
-								<img
-									class="Green_Cola_select_img"
-									src="/img/Green_Cola.png"
-									alt="초록콜라"
-								/>Green_Cola<span class="num_counter">2</span>
-							</button>
-						</li>
-					</ul>
+					<!-- 선택한 음료 목록 -->				    
+                        <ul class="select_list">
+                            <li>
+                                <button class="btn_select_item" type="button">
+                                    <img
+                                        class="Original_Cola_select_img" 
+                                        src="/img/Original_Cola.png"
+                                        alt="오리지널콜라"
+                                    />Original_Cola<span class="num_counter">1</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="btn_select_item" type="button">
+                                    <img
+                                        class="Green_Cola_select_img"
+                                        src="/img/Green_Cola.png"
+                                        alt="초록콜라"
+                                    />Green_Cola<span class="num_counter">2</span>
+                                </button>
+                            </li>
+                        </ul>
 
-					<button class="btn_get" type="button">획득</button>
+                        <button class="btn_get" type="button">획득</button>
+                    
 				</section>
 			</section>
 
+            <!-- content-right 시작, 소지금 -->
 			<section class="content_right">
 				<h2 class="ir">내 소지금과 획득한 음료</h2>
 				<div class="content_right_top">
-					<div class="txt_mymoney">
-						소지금 : <span class="txt_money">25,000원</span>
+					<div class="mymoney">
+						<p class="txt_mymoney">소지금 :
+                            <span class="txt_money">25,000원</span>
+                        </p>
+                         
 					</div>
 				</div>
 
