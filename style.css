@@ -348,7 +348,7 @@ img[class$="my_items_img"] {
  
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 360px) {
     body {
       background-color: white;
     }
