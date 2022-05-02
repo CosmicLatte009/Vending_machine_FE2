@@ -117,7 +117,7 @@ img[class$="list_img"] {
     height: 100%;
     z-index: 10;
     border-radius: 10px;
-    background: no-repeat center/ 60px 46px url('./img/Sold-out.png')
+    background: no-repeat center/ 60px 46px url('img/Sold-out.png')
 }
 
 .all_list li.sold_out::after {
