@@ -42,23 +42,23 @@ body {
 .content_right {
 	-ms-flex-preferred-size: 22.5rem;
 	flex-basis: 22.5rem;
-   
-   
 }
 
 .content_right_top {
 	-ms-flex-item-align: start;
 	align-self: flex-start;
-	margin-bottom: 16px;
-	padding: 9px 0 9px;
+	margin-bottom: 20px;
 	background: #ffffff;
-    padding-left: 27px;
+    padding:9px 27px;
 }
 
 .content_right_bottom {
 	-ms-flex-item-align: start;
 	align-self: flex-start;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 	background: #ffffff;
+    height: 474px;
     padding: 25px 27px 26px 27px;
 }
 
@@ -68,8 +68,9 @@ body {
 	grid-template-columns: repeat(3, 94px);
 	grid-auto-rows: minmax(8.125rem, auto);
 	gap: 0.75rem;
-	margin: 31px 27px 20px;
+	margin: 31px 27px 0;
 	list-style: none;
+    position: relative;
 }
 
 button[class="btn_list_all_item"] {
@@ -77,22 +78,24 @@ button[class="btn_list_all_item"] {
 	background: #ffffff;
 	-webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
 	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 11.07px 13px 9px;
+    position: relative;
 }
 
 img[class$="list_img"] {
 	width: 36px;
-	padding: 11.07px 29.07px 6.07px;
 }
 
 .tit_item {
 	font-size: 0.563rem;
-  /*text-align: center;를 안 줘도 어떻게 가운데 정렬이 됐나..*/
+    line-height: 13.03px;
+    text-align: center;
+  /* text-align: center;를 안 줘도 어떻게 가운데 정렬이 됐나..*/
 }
 
 .txt_price {
-    /*span태그가 인라인요소라서 자기 크기만큼만 가져서 부모button의 height가 자동으로 안 늘어난 것. */
-    /* 인라인이 width랑 height값 줄 수 없다 */
-    /*현지님 왈: 인라인블록 특징은 인라인요소처럼 배치할 수 있으면서 마진 패딩 width height값을 줄 수 있다**/
     display: block;
 	font-size: 0.75rem;
 	color: #ffffff;
@@ -100,27 +103,52 @@ img[class$="list_img"] {
 	border-radius: 50px;
     width: 70px;
     padding: 5px 0;
-    margin: 7px 11px 9px;
-	
+    margin: 7px 0 0;
 }
 
+/* 품절표시 */
+.all_list li.sold_out::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 106px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 10px;
+    background: no-repeat center/ 60px 46px url('/img/Sold-out.png')
+}
 
-/** 잔액표시와 입금하기**/
+.all_list li.sold_out::after {
+    content: '';
+    overflow: hidden;
+    position: absolute;
+    width: 94px;
+    height: 133px;
+    background-color: black;
+    opacity: 0.8;
+}
+
+/* 잔액표시와 입금하기 */
 .select_wrap {
-	margin: 0px 27px 24px;
-    width: 194px;
+	padding: 20px 27px 22px;
+    overflow: hidden;
 }
 
 
 .info_balance {
+    float: left;
     width: 200px;
+    height: 33px;
+    line-height: 20.27px;
 	padding: 6px 10px 7px 10px;
 	border-radius: 5px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 	font-size: 0.88rem;
 	background: #eae8fe;
-    float: left;
+    margin-bottom: 11px;
 }
 
 .txt_balance {
@@ -129,20 +157,23 @@ img[class$="list_img"] {
 }
 
 .btn_return {
-    display: inline;
+    float: right;
     width: 5.875rem;
-    padding: 6px 9px 8px 10px;
-	font-size: 0.813rem;
+    height: 33px;
+	font-size: 13px;
 	font-weight: 500;
 	border-radius: 5px;
 	background: #ffffff;
-	-webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
-	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
-    
+    -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    margin-bottom: 11px;
+    text-align: center;
 }
 
 #payment {
+    float: left;
     width: 200px;
+    height: 33px;
 	padding: 6px 0 8px 6px;
 	background: #ffffff;
 	border: 1px solid #bdbdbd;
@@ -150,40 +181,39 @@ img[class$="list_img"] {
             box-sizing: border-box;
 	border-radius: 5px;
 	font-size: 0.813rem;
+    margin-bottom: 11px;
 }
 
 .btn_pay {
-    width: 24px;
-    padding: 6px 35px 7px;
+    float: right;
+    width: 94px;
+    height: 33px;
 	font-size: 0.813rem;
 	font-weight: 500;
-    vertical-align: middle;
 	border-radius: 5px;
 	background: #ffffff;
-	-webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
-	filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+    margin-bottom: 11px;
 }
 
 
-/** 선택한 음료 목록**/
+/*  선택한 음료 목록 */
 .select_list {
+    float: left;
     width: 200px;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 0%;
-            flex: 1 0 0%;
+    height: 106px;
     padding: 12px 18px 0px 12px;
     -webkit-box-sizing: border-box;
         box-sizing: border-box;
     border: 1px solid #bdbdbd;
     border-radius: 5px;
     background: #eae8fe;
+    overflow: hidden;
 }
 
 .btn_select_item {
     width: 170px;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 0%;
-            flex: 1 0 0%;
     padding: 6px 8px 7px 10px;
     background: #ffffff;
     border-radius: 5px;
@@ -213,15 +243,17 @@ img[class$="select_img"] {
     font-size: 14px;
     font-weight: 500;
     text-align: center;
-    
+    line-height: 20.27px;
+    padding: 4px 11px 4px 10px;
 }
 
 .btn_get {
+    float: right;
     width: 94px;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 0%;
-            flex: 1 0 0%;
+    height: 106px;
     padding: 43px 35px 44px 35px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     background: #6327fe;
     border-radius: 5px;
     color: #ffffff;
@@ -231,24 +263,25 @@ img[class$="select_img"] {
 
 
 /* 소지금, 획득한 음료*/
-.my_money {
-    margin: 0 auto;
-}
 
 .txt_mymoney {
+    width: 306px;
+    height: 32px;
+    padding: 6px 10px;
+    line-height: 20.27px;
 	font-size: 0.825rem;
 	font-weight: 500;
-	width: 306px;
 	border-radius: 5px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 	background: #eae8fe;
-	padding: 6px 0 6px 10px;
+	
 }
 
 .txt_money {
     float: right;
 	font-size: 0.825rem;
 	font-weight: 700;  
-    padding-right: 10px;
 }
 
 .tit_myitem {
@@ -304,14 +337,25 @@ img[class$="my_items_img"] {
     font-size: 14px;
     font-weight: 500;
     text-align: center;
+    line-height: 20.27px;
+    padding: 4px 11px 4px 10px;
 }
 
 .txt_total_price {
 	font-size: 0.75rem;
 	font-weight: 500;
-   
     float: right;
+ 
 }
 
-
+@media (max-width: 480px) {
+    body {
+      background-color: white;
+    }
+  
+    .vending_machine {
+      margin-bottom: 0;
+    }
+  }
+  
 
